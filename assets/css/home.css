@@ -1,0 +1,77 @@
+#project-list {
+  width: 100%;
+  height: auto;
+  padding: 25px 55px;
+  position: relative; }
+  #project-list .Createnewbtn {
+    color: aliceblue;
+    font-weight: 600;
+    padding: 9px 15px;
+    border-radius: 7px;
+    background-color: #1f883d;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 40px; }
+  #project-list .Createnewbtn:hover {
+    color: white;
+    background-color: #187231; }
+  #project-list h3 {
+    color: #787a7d;
+    font-weight: 400;
+    font-size: 1.2rem; }
+  #project-list ul {
+    list-style: none;
+    padding: 0; }
+    #project-list ul li {
+      width: 450px;
+      height: 150px;
+      padding: 26px 17px;
+      border: 1px solid lightgray;
+      border-radius: 8px;
+      position: relative; }
+      #project-list ul li p {
+        padding: 0;
+        margin: 0; }
+      #project-list ul li .name {
+        color: #126fdb;
+        font-size: 0.9rem;
+        font-weight: 620;
+        margin: 0px 0px 15px 0px; }
+      #project-list ul li .privacy {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #7d858e;
+        padding: 2px 5px;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        position: absolute;
+        right: 20px;
+        top: 21px; }
+      #project-list ul li .desc {
+        font-size: 0.75rem;
+        font-family: 900;
+        color: #82878e; }
+      #project-list ul li .type {
+        display: flex;
+        font-size: 0.8rem;
+        position: absolute;
+        bottom: 25px;
+        left: 17px; }
+        #project-list ul li .type span {
+          width: 10px !important;
+          height: 10px !important;
+          margin: 4px 2px 0px 0px;
+          border: 1px solid yellow;
+          border-radius: 5px;
+          display: block; }
+      #project-list ul li .author {
+        font-size: 0.8rem;
+        position: absolute;
+        bottom: 25px;
+        right: 17px; }
+        #project-list ul li .author img {
+          width: 19px;
+          height: 19px;
+          position: relative;
+          top: 4px; }

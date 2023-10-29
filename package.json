@@ -1,0 +1,28 @@
+{
+  "name": "issuetrackerbysumit",
+  "version": "1.0.0",
+  "description": "Simple issue tracking application where you create a list of  projects,its issues,browsing details of project,searching through multiple filters.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sumit Singh ( student at coding ninjas)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-mongo": "^5.0.0",
+    "connect-mongodb-session": "^3.1.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "git": "^0.1.5",
+    "mongoose": "^7.6.1",
+    "node-sass": "^9.0.0",
+    "node-sass-middleware": "^1.1.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  }
+}
