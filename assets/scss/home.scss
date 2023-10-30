@@ -31,15 +31,21 @@
     ul{
         list-style: none;
         padding: 0;
+        display: flex;
+        gap:25px ;
+        flex-wrap: wrap;
+        flex-direction: row;
 
         li{
 
-            width:450px;
+            width:45%;
             height:150px;
             padding: 26px 17px;
             border: 1px solid lightgray;
             border-radius: 8px;
+            flex-shrink: 0.8;
             position: relative;
+            
 
             p{
                 padding: 0;
@@ -68,10 +74,15 @@
             }
         
             .desc{
-
+                height:37%;
                 font-size: 0.75rem;
                 font-family: 900;
                 color:#82878e;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* Show only 2 lines of text */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
                
             }
         

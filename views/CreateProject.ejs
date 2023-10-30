@@ -1,1 +1,56 @@
-<h3><%=heading%></h3>
+<link rel="stylesheet" href="/css/CreateProject.css">
+
+<div id="createProject">
+
+<form method="post" action="/project/create">
+   
+    <h3>Create a new project</h3><br>
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+  
+    <label for="description">Description</label><br>
+    <textarea cols="30" rows="3" id="description" name="description" required></textarea><br><br>
+     
+    <label for="author">Author</label><br>
+    <input type="text" id="author" name="author" required><br><br>
+  
+    <label>Privacy:</label><br>
+    <input type="radio" id="public" name="privacy" value="Public" checked>
+    <label for="public">Public</label><br>
+    
+    <input type="radio" id="private" name="privacy" value="Private">
+    <label for="private">Private</label><br><br>
+
+    <label for="specialization">Specialization:</label>
+    <select id="specialization" name="specialization" required>
+        <option value="null">Choose</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="javascript">JavaScript</option>
+        <option value="mongodb">MongoDB</option>
+        <option value="php">PHP</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="csharp">C#</option>
+        <option value="ruby">Ruby</option>
+        <option value="mysql">MySQL</option>
+        <option value="react">React</option>
+        <option value="angular">Angular</option>
+        <option value="vuejs">Vue.js</option>
+        <option value="nodejs">Node.js</option>
+        <option value="expressjs">Express.js</option>
+        <option value="laravel">Laravel</option>
+        <option value="django">Django</option>
+        <option value="spring">Spring Framework</option>
+        <option value="android">Android</option>
+        <option value="ios">iOS</option>
+    </select>
+    <br><br>
+  
+  
+    <input type="submit" class="Createnewproject" value="Create Project">
+
+    
+  </form>
+  
+</div>

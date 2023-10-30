@@ -10,14 +10,15 @@
         <a class="Createnewbtn" href="/project/createpage">Create new</a>
         
         <ul>
-            <li>
-                <h5 class="name">To-do-List</h5>
-                <p class="privacy">Public</p>
-                <p class="desc">Simple to-do-list web page having input box add buttons an more</p>
-                <p class="type"><span style="background-color:yellow ;"></span>&nbsp;Javascript</p>
-                <p class="author"><img src="icons/person.svg" >&nbsp;Sumit Singh</p>
-          
-            </li>
+            <% for (project of _Projects) { %>
+                <li id="<%= project._id %>">
+                  <h5 class="name"><%= project.name %></h5>
+                  <p class="privacy" ><%= project.privacy %></p>
+                  <p class="desc" ><%= project.description %></p>
+                  <p class="type"><span style="background-color: yellow;"></span>&nbsp;<%= project.specialization %></p>
+                  <p class="author"><img src="icons/person.svg" >&nbsp;<%= project.author %></p>
+                </li>
+              <% } %>
         </ul>
 
     </div>   

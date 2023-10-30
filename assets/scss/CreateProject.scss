@@ -1,0 +1,88 @@
+
+#createProject{
+    padding-bottom: 0px;
+    width:100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+form{
+    max-width:80%;
+    height:auto;
+  
+    padding: 20px 30px;
+   //border:1px solid lightgray;
+   position: relative;
+
+    h3{
+        font-size: 28px;
+        margin:0px 0px 10px -5px;
+        font-weight: 500;
+        color: rgb(57, 53, 53);
+    }
+
+    label{
+        color: rgb(119, 113, 113);
+        font-size: 13px;
+        font-weight: 650;
+        margin: 5px 0px;
+        padding: 8px 0px;
+    }
+
+    input[type="text"] {
+        margin: 5px 0px;
+        height: 30px;
+        width: 70vw;
+        text-indent: 10px; 
+        transition: all 80ms;
+      }
+
+      #name{
+        width: 300px;
+      }
+
+      #description{
+        margin: 5px 0px;
+        padding: 8px 3px;
+        text-indent: 10px; 
+        width: 70vw;
+        caret-shape:bar;
+       
+      }
+
+      #author{
+        width: 300px;
+      }
+
+      input:focus{
+        outline: none;
+        
+      }
+
+      .Createnewproject{
+        color: aliceblue;
+        font-weight: 600;
+        padding: 9px 10px; 
+        border-radius: 7px;
+        background-color: #1f883d;
+        cursor: pointer;
+        position: absolute;
+        right:25px;
+        bottom:35px;
+
+     
+        }
+    
+       .Createnewproject:hover{
+        color: white;
+          background-color:#187231;
+        }  
+
+}
+
+
+
+}
+

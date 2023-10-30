@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 //connecting
 main().catch(err => console.log("database err"+err));
 async function main(){
-    await mongoose.connect ('mongodb://127.0.0.1:27017/Issue_tracker_sumit407')
+    await mongoose.connect ('mongodb://127.0.0.1:27017/Issuetrackersumit407')
 }
 
  // connect to DB

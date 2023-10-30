@@ -1,0 +1,55 @@
+#createProject {
+  padding-bottom: 0px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px; }
+  #createProject form {
+    max-width: 80%;
+    height: auto;
+    padding: 20px 30px;
+    position: relative; }
+    #createProject form h3 {
+      font-size: 28px;
+      margin: 0px 0px 10px -5px;
+      font-weight: 500;
+      color: #393535; }
+    #createProject form label {
+      color: #777171;
+      font-size: 13px;
+      font-weight: 650;
+      margin: 5px 0px;
+      padding: 8px 0px; }
+    #createProject form input[type="text"] {
+      margin: 5px 0px;
+      height: 30px;
+      width: 70vw;
+      text-indent: 10px;
+      transition: all 80ms; }
+    #createProject form #name {
+      width: 300px; }
+    #createProject form #description {
+      margin: 5px 0px;
+      padding: 8px 3px;
+      text-indent: 10px;
+      width: 70vw;
+      caret-shape: bar; }
+    #createProject form #author {
+      width: 300px; }
+    #createProject form input:focus {
+      outline: none; }
+    #createProject form .Createnewproject {
+      color: aliceblue;
+      font-weight: 600;
+      padding: 9px 10px;
+      border-radius: 7px;
+      background-color: #1f883d;
+      cursor: pointer;
+      position: absolute;
+      right: 25px;
+      bottom: 35px; }
+    #createProject form .Createnewproject:hover {
+      color: white;
+      background-color: #187231; }
