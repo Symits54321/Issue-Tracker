@@ -33,6 +33,20 @@ module.exports.create=async function(req,res){
 
 module.exports.detail=async function(req,res){
     
-    return res.render('DetailProject', { title: "IssueTracker/detail",
-                                 heading: "Welcome to Project Detail Page" });
+    console.log(req.query);
+    let id = req.query.id;
+
+    try {
+        let project = await projectModal.findOne({ _id: id }); 
+   
+       
+
+                return res.render('DetailProject', { title: "IssueTracker/detail",
+                                            heading: "Welcome to Project Detail Page",
+                                            _Project:project });
+
+
+        }catch(err){
+            console.log("Error in finding details/rendering of project")
+        }
 }

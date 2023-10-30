@@ -1,1 +1,43 @@
-<h3><%= heading %></h3>
+<link rel="stylesheet" href="/css/DetailProject.css">
+
+<!-- <h3><%= heading %></h3>
+    
+<p><%= _Project %></p> -->
+
+<div class="projectDetails">
+    <h3 class="name"><span><%= _Project.name %></span></h3>
+    <p class="author">Author<span><%= _Project.author %></span></p>
+    <p class="desc">Description<span><%= _Project.description %></span></p>
+    <p class="privacy">Privacy<span><%= _Project.privacy %></span></p>
+    <p class="spec">Specialization<span><%= _Project.specialization %></span></p>
+    <p class="created">Created <span><%= _Project.createdAt %></span></p>
+    <p class="updated">Last update<span><%= _Project.updatedAt %></span></p>
+</div>
+
+<a  class="CreatenewIssue" >Create new issue</a>
+
+<div class="issueForm" style="display: none;">
+    <form action="/issue/create" method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+      
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+      
+        <label for="labels">Labels:</label><br>
+        <input type="text" id="labels" name="labels"><br><br>
+      
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author" required><br><br>
+
+        <input type="hidden" id="project" name="project" value="<%= _Project._id %>"><br><br>
+      
+        <input type="submit" value="Submit" >
+      </form>
+</div>
+
+ 
+<script src="/js/DetailProject.js"></script>  
+  
+  
+  

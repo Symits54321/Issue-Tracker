@@ -1,0 +1,79 @@
+.projectDetails{
+    width:40%;
+    margin: 15px 15px;
+    height:auto;
+    padding: 5px;
+    border: 1px solid lightgray;
+
+    h3{
+        font-size: 25px;
+    }
+
+    p{
+        font-size: 20px;
+        margin-left: 10px;
+
+        span{
+            font-size: 15px;
+            text-indent: 10px;
+            margin-left: 10px;
+        }
+    }
+
+
+    
+}
+
+.issueForm{
+    width:40%;
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    background-color: rgb(250, 215, 215);
+    display: none;
+    position: absolute;
+    top:185px;
+    right:15px;
+   
+
+
+    
+   form{
+
+    display:none;
+
+        textarea{
+            width:90%;
+        }
+
+        input[type="text"] {
+            width: 90%;
+          }
+
+        #description{
+        
+            margin:5px 0px 10px 0px;
+        }
+
+    } 
+}
+
+.CreatenewIssue{
+    color: aliceblue;
+    font-weight: 600;
+    padding: 9px 10px; 
+    border-radius: 7px;
+    background-color: #1f883d;
+    cursor: pointer;
+    position: absolute;
+    right:25px;
+    top:135px;
+
+ 
+    }
+
+   .CreatenewIssue:hover{
+    color: white;
+      background-color:#187231;
+    }  
