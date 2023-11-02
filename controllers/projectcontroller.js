@@ -1,4 +1,5 @@
 const projectModal=require('../models/projectModel');
+const issueModal=require('../models/issueModel');
 //createpage open
 
 module.exports.createpage=async function(req,res){
@@ -38,12 +39,21 @@ module.exports.detail=async function(req,res){
 
     try {
         let project = await projectModal.findOne({ _id: id }); 
+
+        let issues = await issueModal.find({ project:id});
+
+        // Get a list of unique authors from the issues
+      let authors = await issueModal.distinct('author', { project: id });
+      let labels = await issueModal.distinct('label', { project: id });
    
        
 
                 return res.render('DetailProject', { title: "IssueTracker/detail",
                                             heading: "Welcome to Project Detail Page",
-                                            _Project:project });
+                                            _Project:project,
+                                            _Issues:issues,
+                                            _Authors:authors,
+                                            _Labels:labels });
 
 
         }catch(err){

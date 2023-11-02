@@ -15,7 +15,8 @@ module.exports.create=async function(req,res){
             let issue = await issueModal.create(
                 req.body
             );
-
+            
+            res.redirect('back');
 
         }catch(err){
 

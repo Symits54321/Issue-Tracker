@@ -1,42 +1,183 @@
 <link rel="stylesheet" href="/css/DetailProject.css">
 
-<!-- <h3><%= heading %></h3>
-    
+<!-- <h3><%= heading %></h3> 
 <p><%= _Project %></p> -->
 
+<!-- Project details -->
+<p id="project_id" style="display: none;"><%= _Project._id %></p>
 <div class="projectDetails">
-    <h3 class="name"><span><%= _Project.name %></span></h3>
-    <p class="author">Author<span><%= _Project.author %></span></p>
-    <p class="desc">Description<span><%= _Project.description %></span></p>
-    <p class="privacy">Privacy<span><%= _Project.privacy %></span></p>
-    <p class="spec">Specialization<span><%= _Project.specialization %></span></p>
-    <p class="created">Created <span><%= _Project.createdAt %></span></p>
-    <p class="updated">Last update<span><%= _Project.updatedAt %></span></p>
+   
+    <h3 class="name" ><span><%= _Project.name %></span></h3>
+    <p class="author">Author:-<span ><%= _Project.author %></span></p>
+    <p class="privacy">Privacy:-<span><%= _Project.privacy %></span></p>
+    <p class="spec">Specialization:-<span><%= _Project.specialization %></span></p>
+    <p class="created">Created:-<span><%= _Project.createdAt %></span></p>
+    <p class="updated">Last update:-<span><%= _Project.updatedAt %></span></p>
+    <p class="desc">Description:-<span><%= _Project.description %></span></p>
+   
+</div>
+<div class="filter">
+    <div class="head">
+        <input type="text" class="issueSearchBox">
+        <a  class="CreatenewIssue" >Create new issue</a>
+    </div>
+        <!-- create issue form  -->
+                <div class="issueForm collapsed" >
+                    <form action="/issue/create" method="POST">
+                        <p style="font-weight: 600; margin-top: 45px;">Issue form for <%= _Project.name %></p>
+                        <div class="flexform">
+                        <div>
+
+                            <label for="title">Title:</label><br>
+                            <input type="text" id="title" name="title" required><br><br>
+                        
+                            <label for="description">Description:</label><br>
+                            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+                        
+                        </div>
+                        
+                        <div>
+                        <label for="label">Labels:</label>
+                        <div class="multiselect">
+                        
+                            <div class="options">
+                                <div class="option">
+                                    <input type="checkbox" id="bug" name="label[]" value="bug">
+                                    <label for="bug">Bug</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="documentation" name="label[]" value="documentation">
+                                    <label for="documentation">Documentation</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="duplicate" name="label[]" value="duplicate">
+                                    <label for="duplicate">Duplicate</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="enhancement" name="label[]" value="enhancement">
+                                    <label for="enhancement">Enhancement</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="good_first_issue" name="label[]" value="good_first_issue">
+                                    <label for="good_first_issue">Good First Issue</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="help_wanted" name="label[]" value="help_wanted">
+                                    <label for="help_wanted">Help Wanted</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="invalid" name="label[]" value="invalid">
+                                    <label for="invalid">Invalid</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="question" name="label[]" value="question">
+                                    <label for="question">Question</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" id="wontfix" name="label[]" value="wontfix">
+                                    <label for="wontfix">Won't Fix</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    
+                        <label for="author">Author:</label><br>
+                        <input type="text" id="author" name="author" required><br><br>
+                    </div>
+                    <div>
+                        <input type="hidden" id="project" name="project" value="<%= _Project._id %>">
+                        <input type="submit" value="Submit" >
+                        <a class="cancel">Cancel</a>
+                    </div>
+                </div>
+                    </form>
+                </div>
+
+<!------------------------------------ ISSUE LIST   ------------------------------------------------->
+
+    <div class="issuelist">
+        <ul class="issuelist-ul">
+        </ul>
+    </div>
+    
+    
 </div>
 
-<a  class="CreatenewIssue" >Create new issue</a>
 
+<!-- create issue button -->
+
+
+
+
+<!-- create issue form  -->
 <div class="issueForm" style="display: none;">
     <form action="/issue/create" method="POST">
+        <p>Issue form for <%= _Project.name %></p>
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" required><br><br>
       
         <label for="description">Description:</label><br>
         <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
       
-        <label for="labels">Labels:</label><br>
-        <input type="text" id="labels" name="labels"><br><br>
+    
+        <label for="label">Labels:</label>
+        <div class="multiselect">
+           
+            <div class="options">
+                <div class="option">
+                    <input type="checkbox" id="bug" name="label[]" value="bug">
+                    <label for="bug">Bug</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="documentation" name="label[]" value="documentation">
+                    <label for="documentation">Documentation</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="duplicate" name="label[]" value="duplicate">
+                    <label for="duplicate">Duplicate</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="enhancement" name="label[]" value="enhancement">
+                    <label for="enhancement">Enhancement</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="good_first_issue" name="label[]" value="good_first_issue">
+                    <label for="good_first_issue">Good First Issue</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="help_wanted" name="label[]" value="help_wanted">
+                    <label for="help_wanted">Help Wanted</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="invalid" name="label[]" value="invalid">
+                    <label for="invalid">Invalid</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="question" name="label[]" value="question">
+                    <label for="question">Question</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="wontfix" name="label[]" value="wontfix">
+                    <label for="wontfix">Won't Fix</label>
+                </div>
+            </div>
+        </div>
+        <br><br>
       
         <label for="author">Author:</label><br>
         <input type="text" id="author" name="author" required><br><br>
 
-        <input type="hidden" id="project" name="project" value="<%= _Project._id %>"><br><br>
+        <input type="hidden" id="project" name="project" value="<%= _Project._id %>">
       
         <input type="submit" value="Submit" >
+        <a class="cancel">Cancel</a>
       </form>
 </div>
 
- 
+
+
+
+ <!-- Script  -->
 <script src="/js/DetailProject.js"></script>  
   
   

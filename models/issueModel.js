@@ -14,9 +14,9 @@ const issueSchema = new mongoose.Schema({
 
     },
 
-    labels:{
-        type: String,
-        required: true
+    label:{
+        type:Array,
+        required: false
     },
     
     author:{
