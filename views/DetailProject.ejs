@@ -18,10 +18,12 @@
 </div>
 <div class="filter">
     <div class="head">
-        <input type="text" class="issueSearchBox">
+        <input type="text" class="issueSearchBox" placeholder="Type to search by title/description">
         <a  class="CreatenewIssue" >Create new issue</a>
     </div>
-        <!-- create issue form  -->
+
+
+    <!-- create issue form  -->
                 <div class="issueForm collapsed" >
                     <form action="/issue/create" method="POST">
                         <p style="font-weight: 600; margin-top: 45px;">Issue form for <%= _Project.name %></p>

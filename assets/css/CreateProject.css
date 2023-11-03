@@ -11,6 +11,10 @@
     height: auto;
     padding: 20px 30px;
     position: relative; }
+    @media (max-width: 640px) {
+      #createProject form {
+        max-width: 100%;
+        width: 100%; } }
     #createProject form h3 {
       font-size: 28px;
       margin: 0px 0px 10px -5px;
@@ -22,6 +26,9 @@
       font-weight: 650;
       margin: 5px 0px;
       padding: 8px 0px; }
+      @media (max-width: 570px) {
+        #createProject form label {
+          font-size: 18px; } }
     #createProject form input[type="text"] {
       margin: 5px 0px;
       height: 30px;
@@ -30,14 +37,23 @@
       transition: all 80ms; }
     #createProject form #name {
       width: 300px; }
+      @media (max-width: 540px) {
+        #createProject form #name {
+          width: 100%; } }
     #createProject form #description {
       margin: 5px 0px;
       padding: 8px 3px;
       text-indent: 10px;
       width: 70vw;
       caret-shape: bar; }
+      @media (max-width: 540px) {
+        #createProject form #description {
+          width: 100%; } }
     #createProject form #author {
       width: 300px; }
+      @media (max-width: 540px) {
+        #createProject form #author {
+          width: 100%; } }
     #createProject form input:focus {
       outline: none; }
     #createProject form .Createnewproject {
@@ -50,6 +66,11 @@
       position: absolute;
       right: 25px;
       bottom: 35px; }
+      @media (max-width: 470px) {
+        #createProject form .Createnewproject {
+          font-size: 18px;
+          left: 25px;
+          bottom: -10px; } }
     #createProject form .Createnewproject:hover {
       color: white;
       background-color: #187231; }

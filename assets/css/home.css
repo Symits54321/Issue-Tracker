@@ -3,6 +3,9 @@
   height: auto;
   padding: 25px 55px;
   position: relative; }
+  @media (max-width: 540px) {
+    #project-list {
+      padding: 45px 30px; } }
   #project-list .Createnewbtn {
     color: aliceblue;
     font-weight: 600;
@@ -27,6 +30,9 @@
     gap: 25px;
     flex-wrap: wrap;
     flex-direction: row; }
+    @media (max-width: 900px) {
+      #project-list ul {
+        flex-direction: column; } }
     #project-list ul li {
       width: 45%;
       height: 150px;
@@ -35,6 +41,9 @@
       border-radius: 8px;
       flex-shrink: 0.8;
       position: relative; }
+      @media (max-width: 900px) {
+        #project-list ul li {
+          width: 100%; } }
       #project-list ul li p {
         padding: 0;
         margin: 0; }

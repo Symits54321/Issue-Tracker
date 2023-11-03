@@ -3,7 +3,7 @@ const router = express.Router();
 
 const projectcontroller = require('../controllers/projectcontroller');
  
-
+ 
 router.get('/createpage',projectcontroller.createpage);
 
 //  router.post('/',projectcontroller.detail);

@@ -3,6 +3,9 @@
    width:100%;
    height:auto;
    padding: 25px 55px ;
+   @media(max-width: 540px) {
+    padding: 45px 30px ;
+   }
    position: relative;
 
    .Createnewbtn{
@@ -35,6 +38,9 @@
         gap:25px ;
         flex-wrap: wrap;
         flex-direction: row;
+        @media(max-width: 900px) {
+            flex-direction: column;
+        }
 
         li{
 
@@ -45,6 +51,9 @@
             border-radius: 8px;
             flex-shrink: 0.8;
             position: relative;
+            @media(max-width: 900px) {
+                width:100%;
+            }
             
 
             p{
@@ -125,3 +134,6 @@
     }
     
 }
+
+
+

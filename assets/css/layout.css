@@ -5,8 +5,6 @@
     text-decoration: none;
     cursor: pointer; }
   * input, * textarea, * select {
-    caret-color: grey;
-    caret-shape: bar !important;
     padding: 8px 12px;
     border-radius: 4px;
     border: 1px solid lightgray; }
@@ -102,7 +100,22 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center; }
-  footer div {
-    width: 95%;
-    border-top: 0.1px solid #696666;
-    padding: 4px 15px; }
+
+footer div {
+  width: 95%;
+  border-top: 0.1px solid #696666;
+  padding: 4px 15px; }
+
+/* This is a comment */
+@media (max-width: 900px) {
+  header {
+    height: 18vh; }
+  .main {
+    min-height: 70vh; }
+  footer {
+    height: 12vh; } }
+
+@media (max-width: 468px) {
+  html {
+    zoom: 0.75;
+    /* Adjust the zoom level as needed */ } }

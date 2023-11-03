@@ -240,19 +240,27 @@ async function allInputClick(e){
     console.log("you clicked"+clicked.classList);
     console.log(projectId);
 
-    // createIssue page
+    // Issueform page animation
     if(clicked.classList.contains('CreatenewIssue') || clicked.classList.contains('cancel')){ 
 
         console.log("clicked create issue");
+
+        let x = window.matchMedia("(max-width:670px)");
+        let h;
+        if(x.matches){
+          h=620;
+        }else{
+          h=450;
+        }
 
         if(issueForm.classList.contains('collapsed')){
          
              issueForm.style.animation = "scrollDown 600ms linear";
              console.log("scrolldown");
              issueForm.classList.remove('collapsed');
-             issueForm.style.height='400px';
+             issueForm.style.height=`${h}px`;
              issueForm.style.border='1px solid lightgrey';
-             Form.style.height='400px';
+             Form.style.height=`${h}px`;
            
 
         }else {

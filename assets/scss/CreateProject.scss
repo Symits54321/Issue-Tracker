@@ -10,6 +10,11 @@
 
 form{
     max-width:80%;
+
+    @media(max-width: 640px) {
+      max-width:100%;
+      width:100%;
+     }
     height:auto;
   
     padding: 20px 30px;
@@ -26,6 +31,9 @@ form{
     label{
         color: rgb(119, 113, 113);
         font-size: 13px;
+        @media(max-width: 570px) {
+          font-size: 18px;
+        }
         font-weight: 650;
         margin: 5px 0px;
         padding: 8px 0px;
@@ -41,6 +49,9 @@ form{
 
       #name{
         width: 300px;
+        @media(max-width: 540px) {
+          width: 100%;
+        }
       }
 
       #description{
@@ -48,12 +59,18 @@ form{
         padding: 8px 3px;
         text-indent: 10px; 
         width: 70vw;
+        @media(max-width: 540px) {
+          width: 100%;
+        }
         caret-shape:bar;
        
       }
 
       #author{
         width: 300px;
+        @media(max-width: 540px) {
+          width: 100%;
+        }
       }
 
       input:focus{
@@ -71,6 +88,13 @@ form{
         position: absolute;
         right:25px;
         bottom:35px;
+
+        @media(max-width: 470px) {
+          font-size: 18px;
+          left:25px;
+          bottom:-10px;
+          
+        }
 
      
         }
