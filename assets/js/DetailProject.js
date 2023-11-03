@@ -46,14 +46,16 @@ async function IssueApiCall(){
 // this function manages to display "Issues" array in beautifully in  list-----------------------
 async function displayIssues(Issues){
 
+  try{
+
     let length= await Issues.length;
 
       // refreshing mainpage
       issueList.innerHTML=``;
 
       // adding headpart of list
-      let dropdownLabels = labelsToFilter.map(label => `<li class='labelList'>${label}</li>`).join('');
-      let dropdownAuthors = authorsToFilter.map(label => `<li class='authorList'>${label}</li>`).join('');
+      let dropdownLabels = await labelsToFilter.map(label => `<li class='labelList'>${label}</li>`).join('');
+      let dropdownAuthors = await authorsToFilter.map(label => `<li class='authorList'>${label}</li>`).join('');
       issueList.innerHTML=`
 
       <div id="headList">
@@ -104,11 +106,17 @@ async function displayIssues(Issues){
         issueList.appendChild(list)
       } 
 
-
+    }catch(err){
+      console.log("minor error in displayIssues");
+    }
 }
 
 // refreshes what the filter applied ------------------------------------------------------------
 async function refreshFilterDisplay(){
+
+  try{
+
+  
 
     let filterDetails = document.querySelector('.filter-details');
 
@@ -139,12 +147,9 @@ async function refreshFilterDisplay(){
 
             }
 
-    // filterDetails.innerHTML=` 
-
-    //   <a class="clear-filter">Clear filter</a>
-    //   <p>${authorsFiltered}</p>
-    //   <p>${labelsFiltered}</p>
-    // `;
+           }catch(err){
+               console.log('minor error of refresh clearlist');
+           }
 
 }
 
@@ -281,7 +286,7 @@ async function allInputClick(e){
             let  Author = document.querySelector('.authorFilter');
             let  Label = document.querySelector('.labelFilter');
 
-        console.log("clicked filter author part");
+                                         console.log("clicked filter author part");
 
         if(Author.classList.contains('collapsed')){
          
@@ -405,6 +410,88 @@ async function allInputClick(e){
 
 // main event listener --------------------------------    
 document.addEventListener('click',allInputClick);
+document.addEventListener('mouseover', allInputHover);
+
+function allInputHover(e) {
+    // Your hover event handler logic here
+      let hover = e.target;
+
+                               //console.log("you hovered :- "+hover.classList);
+
+          if(hover.classList.contains('authorbtn')){
+                            
+                let  Author = document.querySelector('.authorFilter');
+                let  Label = document.querySelector('.labelFilter');
+
+                                            console.log("clicked filter author part");
+
+                    if(Author.classList.contains('collapsed')){
+                    
+                        Label.style.display='none';
+                        Label.classList.add('collapsed');
+                        console.log("Author Filter on");
+                        Author.classList.remove('collapsed');
+                        Author.style.display='block';
+                        
+                      
+
+                    }
+                    
+          }
+
+
+
+          if(hover.classList.contains('labelbtn')){
+                let  Author = document.querySelector('.authorFilter');
+                let  Label = document.querySelector('.labelFilter');
+
+                                        console.log("clicked filter label part");
+
+                    if(Label.classList.contains('collapsed')){
+                    
+                        Author.style.display='none';
+                        Author.classList.add('collapsed');
+                        console.log("Label Filter on");
+                        Label.classList.remove('collapsed');
+                        Label.style.display='block';
+                
+              
+
+                }
+
+          }
+
+          if(!hover.classList.contains('authorbtn') && !hover.classList.contains('authorList')){
+
+
+                  // when clicking outside off the dropdown
+                        let  Author = document.querySelector('.authorFilter');
+                      
+                        console.log("Author Filter dropdown off");
+                        Author.classList.add('collapsed');
+                        Author.style.display='none';
+       
+
+          }
+
+          if(!hover.classList.contains('labelbtn') && !hover.classList.contains('labelList')){
+
+
+            // when clicking outside off the dropdown
+              
+                let  Label = document.querySelector('.labelFilter');
+                console.log("label Filter dropdown off");
+              
+                Label.classList.add('collapsed');
+                Label.style.display='none';
+
+            }
+
+
+
+
+
+}
 
 
 let inputText;
