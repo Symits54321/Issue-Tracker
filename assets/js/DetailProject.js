@@ -1,24 +1,25 @@
-
+// Basic elements fetched
 let issueForm = document.querySelector('.issueForm');
 let  Form = document.querySelector('.issueForm>form');
 let  Author = document.querySelector('.authorFilter');
 let  Label = document.querySelector('.labelFilter');
- let projectId =  document.querySelector('#project_id').textContent;
-
- let issueList = document.querySelector('.issuelist-ul');
- //let filterDetails = document.querySelector('.filter-details');
- 
-
-
+let projectId =  document.querySelector('#project_id').textContent;
+let issueList = document.querySelector('.issuelist-ul');
+//let filterDetails = document.querySelector('.filter-details');
+let searchInput = document.querySelector('.issueSearchBox');
+//let searchSuggestion = document.querySelector('#dropdown>ul');
 
 
 
-// List of issue to be displayed 
 
-    let projectIssues  ;
-    let authorsToFilter;
-    let labelsToFilter;
+// List of issue to be displayed   
+    let projectIssues  ; // to be filled with all issues related to the project
+    let authorsToFilter; // to be filled with all issues authors used in the issues for choosing filters
+    let labelsToFilter;  // to be filled with all issues labels used in the issues  for choosing filters
+    let filteredIssues;
 
+
+// call the api to get all isuues related to the project  -----------------------------------------  
 async function IssueApiCall(){
 
     let url = `http://localhost:8100/api/issue/filter/?project_id=${projectId}`;
@@ -42,23 +43,21 @@ async function IssueApiCall(){
     return projectIssues;
 }
 
-
+// this function manages to display "Issues" array in beautifully in  list-----------------------
 async function displayIssues(Issues){
 
     let length= await Issues.length;
 
       // refreshing mainpage
       issueList.innerHTML=``;
+
       // adding headpart of list
       let dropdownLabels = labelsToFilter.map(label => `<li class='labelList'>${label}</li>`).join('');
       let dropdownAuthors = authorsToFilter.map(label => `<li class='authorList'>${label}</li>`).join('');
       issueList.innerHTML=`
 
       <div id="headList">
-      <p style="font-weight: 600;">Issues:-${Issues.length} by api</p>
-      <div class="filter-details">
-      <a class="clear-filter">Clear filter</a>
-      </div>
+      <p style="font-weight: 600;">Issues:-${Issues.length}</p>
       <p style="margin-left:auto ;">Filter by :- </p>
       <!-- dropdown filter of author and labels  -->
       <div class="dropdown" >
@@ -75,9 +74,12 @@ async function displayIssues(Issues){
                 
               </ul>
 
-            </div>
+      </div>
             
-        </div>
+    </div>
+    <div class="filter-details">
+     <a class="clear-filter">Clear filter</a>
+    </div>
       
       `;
 
@@ -105,7 +107,7 @@ async function displayIssues(Issues){
 
 }
 
-
+// refreshes what the filter applied ------------------------------------------------------------
 async function refreshFilterDisplay(){
 
     let filterDetails = document.querySelector('.filter-details');
@@ -117,17 +119,36 @@ async function refreshFilterDisplay(){
     let labelsFiltered = savedData2 ? JSON.parse(savedData2) : [];
 
     filterDetails.innerHTML=``;
+    filterDetails.innerHTML=` <a class="clear-filter">Clear filter</a> `;
 
-    filterDetails.innerHTML=` 
 
-      <a class="clear-filter">Clear filter</a>
-      <p>${authorsFiltered}</p>
-      <p>${labelsFiltered}</p>
-    `;
+          if (authorsFiltered.length>0){
+
+            let para1 = document.createElement('p');
+            para1.innerHTML=` ${authorsFiltered} `;
+            filterDetails.appendChild(para1);
+            
+          }
+
+
+            if (labelsFiltered.length>0){
+
+              let para2 = document.createElement('p');
+              para2.innerHTML=`${labelsFiltered}`;
+              filterDetails.appendChild(para2);
+
+            }
+
+    // filterDetails.innerHTML=` 
+
+    //   <a class="clear-filter">Clear filter</a>
+    //   <p>${authorsFiltered}</p>
+    //   <p>${labelsFiltered}</p>
+    // `;
 
 }
 
-
+// call the api to filter issues when select any filter like authors and bugs from dropdown -------
 async function issueFilterApi(){
 
     let savedData1 = await sessionStorage.getItem('myAuthors');
@@ -139,7 +160,7 @@ async function issueFilterApi(){
 
     filterUrl=`http://localhost:8100/api/issue/filter/?project_id=${projectId}&author=${authorsfilter}&label=${labelsfilter}`;
 
-
+    
 
     // calling api and checking   
     let response = await fetch(filterUrl);
@@ -152,24 +173,60 @@ async function issueFilterApi(){
     // fetching json from url response  
     const jsonData = await response.json();
 
-    let filteredIssues = await jsonData.issue; 
-    //authorsToFilter= await jsonData.authorsToFilter;
-    //labelsToFilter= await jsonData.labelsToFilter;
-
+    // if already filtered from search input then take subset
+        filteredIssues = await jsonData.issue; 
+         
+   // filterby text service and then display
+        textFilterandDisplay();
+      
     console.log(filteredIssues);
 
-    displayIssues(filteredIssues);
+    
+
+  
 
    
 
 }
+// a start call
+issueFilterApi();  // filteredIssues will be loaded from api (according to bugs and label filter)
+
+async function filterInputIssues(text){
+
+ 
+    IssueList=await filteredIssues;
+ 
+   
+  // 
+  let filteredDescriptionResult = await IssueList.filter(m => 
+      m.description.substring(0,text.length).toLowerCase() === text.toLowerCase());
+
+  let filteredTitleResult = await IssueList.filter(m => 
+    m.title.substring(0,text.length).toLowerCase() === text.toLowerCase()); 
+    
+   let filteredResult= await [...filteredTitleResult,...filteredDescriptionResult] ;
+
+  //changing the filtereissues
+  // filteredIssues=filteredResult;
+
+  return filteredResult;
+
+}
+
+async function giveSuggestion(text){
+
+ //let dataFetchedFirstLetter = await fetch(`${API_URL}search.php?f=${text.charAt(0)}`);
+ // let data = await dataFetchedFirstLetter.json();
+  let filteredTextResult = await filterInputIssues(text);
+
+  displayIssues(filteredTextResult);
 
 
 
+}
 
 
-// All click in screen manager(i.e event listener)
-
+// All click in screen manager(i.e event listener)-----------------------------------------------
 async function allInputClick(e){
    
    
@@ -211,6 +268,7 @@ async function allInputClick(e){
     removeDataOnPageReload();
     fetchDataAndDisplayIssues();
     refreshFilterDisplay();
+    issueFilterApi();  // filteredIssues will be loaded from api (according to bugs and label filter)
 
    } 
 
@@ -345,13 +403,48 @@ async function allInputClick(e){
 }
 
 
-    
+// main event listener --------------------------------    
 document.addEventListener('click',allInputClick);
 
 
+let inputText;
+
+async function textFilterandDisplay(){
+
+  if(inputText){
+    let callSuggestion = await
+    giveSuggestion(inputText);  // filter and display
+    
+  }else{
+   
+    displayIssues(filteredIssues);
+   
+  }
+
+setTimeout(refreshFilterDisplay, 200); 
+
+}
+
+// Event listener function for search input
+if(searchInput){
+
+  searchInput.addEventListener('keyup', async (e) => {
+
+       inputText = e.target.value;
+       
+       //issueFilterApi();  // filteredIssues will be loaded from api (according to bugs and label filter)
+        textFilterandDisplay();
+          
+      setTimeout(refreshFilterDisplay, 200); 
+     
+  });
+
+  // refreshes the filter results (as saving and displaying cannot occur simultaneously)
+ 
+  }
 
 
-//refreshing session
+//refreshing sessionstorage  (deletes all filters applied)---------------------------------------------
 function removeDataOnPageReload() {
     sessionStorage.removeItem('myAuthors');
     sessionStorage.removeItem('myLabels');
@@ -360,7 +453,7 @@ function removeDataOnPageReload() {
   window.addEventListener('beforeunload', removeDataOnPageReload); 
 
 
-// Api call on Loading page
+// Api call and diplay manager (used while onload page/refresh) ---------------------------------------
   async function fetchDataAndDisplayIssues() {
     try {
       const issues = await IssueApiCall(); // Assuming IssueApiCall is an asynchronous function
@@ -369,13 +462,13 @@ function removeDataOnPageReload() {
       console.error('Error fetching issues:', error);
     }
   }
-  
+// function to call when page relodes  ----------------------------------------------------------------
   window.onload = function() {
     smoothScroll();
     fetchDataAndDisplayIssues();
   }
  
-  // Smooth scrolll while opening page
+// Smooth scroll  (used to make you focus on issues of the project) -----------------------------------
 function smoothScroll() {
     const start = window.scrollY;
     const end = 300; // Scroll down to 10 pixels from the top

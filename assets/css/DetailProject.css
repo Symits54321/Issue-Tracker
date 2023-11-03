@@ -1,8 +1,8 @@
 .projectDetails {
-  width: 98%;
-  margin: 15px 15px;
+  width: 97%;
+  margin: 15px 25px;
   height: auto;
-  padding: 5px 10px 10px 49px;
+  padding: 5px 10px 55px 49px;
   border: 1px solid lightgray;
   border-radius: 15px;
   display: flex;
@@ -15,7 +15,9 @@
   .projectDetails p {
     font-size: 18px;
     margin: 9px 0px 0px 10px;
-    font-weight: 600; }
+    font-weight: 600;
+    text-align: justify;
+    padding: 0px 30px 0px 0px; }
     .projectDetails p span {
       text-decoration: dashed;
       font-size: 17px;
@@ -142,13 +144,11 @@
       overflow: hidden; }
       .filter .issuelist ul #headList {
         display: flex;
-        padding: 3px 10% 3px 5px;
+        padding: 3px 15px 3px 5px;
         border-radius: 14px 14px 0px 0px;
         background-color: #e6e7e9; }
         .filter .issuelist ul #headList p {
           padding: 3px 20px; }
-        .filter .issuelist ul #headList .filter-details p {
-          font-size: 5px; }
         .filter .issuelist ul #headList .dropdown {
           width: auto;
           position: relative; }
@@ -157,7 +157,8 @@
             border: 1px solid #79b5c9;
             border-radius: 2px;
             background-color: #ffffff;
-            margin-right: 5px; }
+            margin-right: 5px;
+            cursor: pointer; }
           .filter .issuelist ul #headList .dropdown ul {
             min-width: 200px;
             background-color: #fffefe;
@@ -168,21 +169,44 @@
             z-index: 3; }
             .filter .issuelist ul #headList .dropdown ul li {
               padding: 7px 10px;
-              text-align: center; }
+              text-align: center;
+              cursor: pointer; }
             .filter .issuelist ul #headList .dropdown ul li:hover {
               background-color: #f2f6fc; }
+      .filter .issuelist ul .filter-details {
+        display: flex;
+        background-color: #e6e7e9; }
+        .filter .issuelist ul .filter-details a {
+          margin: 5px 3px 15px 25px;
+          padding: 2px 20px;
+          border: 2px solid darkgrey;
+          border-radius: 5px; }
+        .filter .issuelist ul .filter-details p {
+          font-size: 15px;
+          margin: 5px 3px 15px 3px;
+          padding: 3px 10px;
+          color: white;
+          background-color: brown;
+          /* border: 1px solid red; */
+          border-radius: 20px; }
       .filter .issuelist ul li {
         border: 1px solid lightgrey;
         padding: 13px 20px;
         position: relative; }
         .filter .issuelist ul li p {
-          margin: 5px 5px; }
+          margin: 5px 5px;
+          width: 95%;
+          height: auto;
+          padding: 5px 5px;
+          word-wrap: break-word;
+          text-align: justify; }
         .filter .issuelist ul li h3 {
           margin: 0px 2px 0px 2px;
           font-weight: 600;
           font-size: 20px; }
         .filter .issuelist ul li ul {
           display: flex;
+          border: 0 !important;
           max-width: 90%;
           min-height: 30px;
           padding-left: 0; }

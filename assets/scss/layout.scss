@@ -3,10 +3,14 @@
 *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
+    
 
     a{
         text-decoration: none;
+        cursor: pointer;
     }
+
+   
 
     input,textarea,select{
         caret-color: grey;

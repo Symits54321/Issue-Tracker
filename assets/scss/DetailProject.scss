@@ -1,8 +1,8 @@
 .projectDetails{
-    width:98%;
-    margin: 15px 15px;
+    width:97%;
+    margin: 15px 25px;
     height:auto;
-    padding: 5px 10px 10px 49px;
+    padding: 5px 10px 55px 49px;
     border: 1px solid lightgray;
     border-radius: 15px;
     display:flex;
@@ -19,6 +19,8 @@
         font-size: 18px;
         margin: 9px 0px 0px 10px;
         font-weight: 600;
+        text-align: justify;
+        padding: 0px 30px 0px 0px;
 
         span{  
             text-decoration: dashed;
@@ -234,22 +236,21 @@
             border:1px solid lightgrey;
             border-radius: 14px 14px 14px 14px;
             overflow: hidden;
+
+       //headlist
+
             #headList{
                 display:flex;
-                padding:3px 10% 3px 5px;
+                padding:3px 15px 3px 5px;
                 border-radius: 14px 14px 0px 0px;
                 background-color:#e6e7e9;
                
                 p{
                     padding: 3px 20px;
+                    //cursor: pointer;
                 }
-                
-                .filter-details{
-                    p{
-                        font-size: 5px;
-                    }
-                }
-                 
+
+           
                 .dropdown{
                     width:auto;
                     position:relative;
@@ -261,6 +262,7 @@
                         border-radius: 2px;
                         background-color: #ffffff;
                         margin-right: 5px;
+                        cursor: pointer;
                     }
 
                     ul{
@@ -275,6 +277,7 @@
                         li{
                             padding: 7px 10px;
                             text-align: center;
+                            cursor: pointer;
                             
                         }
 
@@ -290,6 +293,33 @@
 
             }
 
+
+    //Clear filter portion       
+                
+            .filter-details{
+                display:flex;
+                background-color:#e6e7e9;
+                a{
+                    margin:5px 3px 15px 25px; 
+                    padding: 2px 20px ;
+                    border: 2px solid darkgrey;
+                    border-radius: 5px;
+                }
+                
+                p{
+                    font-size: 15px;
+                    margin: 5px 3px 15px 3px;
+                    padding: 3px 10px;
+                    color: white;
+                    background-color: brown;
+                    /* border: 1px solid red; */
+                    border-radius: 20px;
+
+                }
+            }
+           
+// issue list part 
+
             li{
                 border:1px solid lightgrey;
                  padding:13px 20px;
@@ -298,6 +328,11 @@
                     p{
                     
                            margin:5px 5px;
+                           width: 95%;
+                           height: auto;
+                           padding:5px 5px;
+                           word-wrap: break-word;
+                           text-align: justify;
                        }
 
                        h3{
@@ -305,10 +340,10 @@
                          font-weight: 600;
                          font-size: 20px;
                        }
-
+// Label part of issule list
                        ul{
                          display: flex;
-                        // border:1px solid;
+                        border:0 !important;
                          max-width:90%;
                          min-height: 30px;
                          padding-left: 0;

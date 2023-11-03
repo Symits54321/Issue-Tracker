@@ -10,6 +10,7 @@ module.exports.filter = async function (req, res) {
   let project_id = req.query.project_id; // a string
   let authorarray = req.query.author; // array of authors
   let labelarray = req.query.label; // array of labels
+ 
   if (authorarray) {
     const authors = authorarray.split(','); 
   console.log('authorarray:', authors);
@@ -34,8 +35,10 @@ module.exports.filter = async function (req, res) {
 
                     if (labelarray) {
                         const labels = labelarray.split(','); 
-                    filter.label = { $in: labels };
+                        filter.label = { $all: labels };
                     }
+
+                   
 
                     const issues = await issueModal.find(filter).sort({ createdAt: 1 });
                     const authorsToFilter = [...new Set(issues.map(issue => issue.author))];
