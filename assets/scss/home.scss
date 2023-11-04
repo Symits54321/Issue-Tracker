@@ -53,7 +53,10 @@
             position: relative;
             @media(max-width: 900px) {
                 width:100%;
+
             }
+
+            cursor:pointer;
             
 
             p{
@@ -130,6 +133,36 @@
 
              }
 
+             .delete-button{
+
+                
+                background-color:#e7e9eb;            
+                padding: 2px 7px;
+                font-size: 11px;
+                width: 20px;
+                height: 20px;
+               
+                border-radius: 0px 8px 0px 0px;
+                color:black;
+                font-weight: 600;
+                
+                position:absolute;
+                right:0px;
+                top:0px;
+
+             }
+
+             .delete-button:hover{
+                background-color: #ff7b7b;
+                color: white;
+             }
+
+        }
+
+        li:hover{
+
+            box-shadow: 1px 1px 13px 2px lightgray;
+            border:none;
         }
     }
     

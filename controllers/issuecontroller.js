@@ -1,11 +1,6 @@
 const issueModal = require('../models/issueModel');
+
 //createpage open
-
-
-
-
-
-
 
 module.exports.create=async function(req,res){
     
@@ -22,4 +17,21 @@ module.exports.create=async function(req,res){
 
             console.log("Error in creating issue  :- "+err);
         }
+}
+
+
+
+module.exports.delete=async function(req,res){
+
+    console.log("issue c delete"+req.params.issueId);
+
+    try {
+        const issueId = req.params.issueId;
+        const deletedIssue = await issueModal.findByIdAndDelete(issueId);
+        return;
+      } catch (error) {
+        console.error("issue delete error"+error);
+      
+      }
+
 }

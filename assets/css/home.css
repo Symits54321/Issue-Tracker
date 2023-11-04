@@ -40,7 +40,8 @@
       border: 1px solid lightgray;
       border-radius: 8px;
       flex-shrink: 0.8;
-      position: relative; }
+      position: relative;
+      cursor: pointer; }
       @media (max-width: 900px) {
         #project-list ul li {
           width: 100%; } }
@@ -96,3 +97,21 @@
           height: 19px;
           position: relative;
           top: 4px; }
+      #project-list ul li .delete-button {
+        background-color: #e7e9eb;
+        padding: 2px 7px;
+        font-size: 11px;
+        width: 20px;
+        height: 20px;
+        border-radius: 0px 8px 0px 0px;
+        color: black;
+        font-weight: 600;
+        position: absolute;
+        right: 0px;
+        top: 0px; }
+      #project-list ul li .delete-button:hover {
+        background-color: #ff7b7b;
+        color: white; }
+    #project-list ul li:hover {
+      box-shadow: 1px 1px 13px 2px lightgray;
+      border: none; }

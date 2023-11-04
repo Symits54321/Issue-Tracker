@@ -9,6 +9,7 @@ router.get('/createpage',projectcontroller.createpage);
 //  router.post('/',projectcontroller.detail);
  router.post('/create',projectcontroller.create);
  router.get('/detail',projectcontroller.detail);
+ router.get('/delete/:projectId',projectcontroller.delete);
 //  router.post('/update',projectcontroller.update);
 //  router.post('/delete',projectcontroller.delete);
 

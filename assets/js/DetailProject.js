@@ -97,10 +97,13 @@ async function displayIssues(Issues){
         <h3 style="text-decoration: underline;">${issue.title}</h3>
         <p style="margin-top:5px ; font-style: italic;">${ issue.description}</p>
         <p style="font-size: 13px;">by ${ issue.author } </p>
-        <ul class="bug">
-            <h5>Labels:-</h5>
+        <div class="Label">
+        <h5>Labels:-</h5>
+        <ul class="bug">           
             ${labels}
-        </ul>     
+        </ul>
+        </div>
+        <a href="/issue/delete/${issue._id}" class="delete-button">X</a>     
         `;
 
         issueList.appendChild(list)
@@ -239,6 +242,15 @@ async function allInputClick(e){
     
     console.log("you clicked"+clicked.classList);
     console.log(projectId);
+
+
+    //delete button clicked
+   
+
+    if(clicked.classList.contains('delete-button')){
+      console.log("issue java delete");
+      setTimeout(issueFilterApi,300);
+    } 
 
     // Issueform page animation
     if(clicked.classList.contains('CreatenewIssue') || clicked.classList.contains('cancel')){ 

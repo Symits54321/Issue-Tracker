@@ -22,8 +22,7 @@ module.exports.create=async function(req,res){
         );
 
 
-    //return res.render('CreateProject', { title: "IssueTracker/create",
-                               //  heading: "Create a new Project" });
+    return res.redirect('/');
         }catch(err){
 
             console.log("Error in creating project :- "+err);
@@ -59,4 +58,20 @@ module.exports.detail=async function(req,res){
         }catch(err){
             console.log("Error in finding details/rendering of project")
         }
+}
+
+
+module.exports.delete=async function(req,res){
+
+    try {
+        const issueId = req.params.projectId;
+        const deletedIssue = await projectModal.findByIdAndDelete(issueId);
+    
+       return res.redirect('/');
+
+      } catch (error) {
+        console.error("issue delete error"+error);
+      
+      }
+
 }

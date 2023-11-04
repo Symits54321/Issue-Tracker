@@ -17,6 +17,7 @@
                   <p class="desc" ><%= project.description %></p>
                   <p class="type"><span style="background-color: yellow;"></span>&nbsp;<%= project.specialization %></p>
                   <p class="author"><img src="icons/person.svg" >&nbsp;<%= project.author %></p>
+                  <a href="/project/delete/<%= project._id %>" class="delete-button">X</a>
                 </li>
               <% } %>
         </ul>
