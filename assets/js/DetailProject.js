@@ -22,7 +22,7 @@ let searchInput = document.querySelector('.issueSearchBox');
 // call the api to get all isuues related to the project  -----------------------------------------  
 async function IssueApiCall(){
 
-    let url = `http://localhost:8100/api/issue/filter/?project_id=${projectId}`;
+    let url = `https://issue-tracker-symits.onrender.com/api/issue/filter/?project_id=${projectId}`;
      
  // calling api and checking   
   let response = await fetch(url);
@@ -166,7 +166,7 @@ async function issueFilterApi(){
     let labelsfilter = await savedData2 ? JSON.parse(savedData2) : [];
 
 
-    filterUrl=`http://localhost:8100/api/issue/filter/?project_id=${projectId}&author=${authorsfilter}&label=${labelsfilter}`;
+    filterUrl=`https://issue-tracker-symits.onrender.com/api/issue/filter/?project_id=${projectId}&author=${authorsfilter}&label=${labelsfilter}`;
 
     
 
@@ -201,7 +201,7 @@ issueFilterApi();  // filteredIssues will be loaded from api (according to bugs 
 
 async function issuedeleteApi(id){
 
-  deleteUrl=`http://localhost:8100/api/issue/delete/${id}`;
+  deleteUrl=`https://issue-tracker-symits.onrender.com/api/issue/delete/${id}`;
 
   let response = await fetch(deleteUrl);
   if (!response.ok) {
