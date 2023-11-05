@@ -103,14 +103,14 @@ async function displayIssues(Issues){
             ${labels}
         </ul>
         </div>
-        <a href="/issue/delete/${issue._id}" class="delete-button">X</a>     
+        <a id ="${issue._id}" class="delete-button">X</a>     
         `;
 
         issueList.appendChild(list)
       } 
 
     }catch(err){
-      console.log("minor error in displayIssues");
+      console.log("minor error in displayIssues"+err);
     }
 }
 
@@ -199,6 +199,21 @@ async function issueFilterApi(){
 // a start call
 issueFilterApi();  // filteredIssues will be loaded from api (according to bugs and label filter)
 
+async function issuedeleteApi(id){
+
+  deleteUrl=`http://localhost:8100/api/issue/delete/${id}`;
+
+  let response = await fetch(deleteUrl);
+  if (!response.ok) {
+      console.log("response error in deleting issues");
+      throw new Error(`HTTP error! status: ${response.status}`);
+      
+  }else{
+     issueFilterApi();
+  }
+
+}
+
 async function filterInputIssues(text){
 
  
@@ -248,8 +263,9 @@ async function allInputClick(e){
    
 
     if(clicked.classList.contains('delete-button')){
-      console.log("issue java delete");
-      setTimeout(issueFilterApi,300);
+      let deleteId = clicked.id
+      issuedeleteApi(deleteId);
+    
     } 
 
     // Issueform page animation

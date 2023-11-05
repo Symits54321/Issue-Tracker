@@ -1,5 +1,10 @@
 const issueModal = require('../../models/issueModel');
 
+
+
+
+
+
 module.exports.filter = async function (req, res) {
   console.log(req.query.author);
 
@@ -63,19 +68,21 @@ module.exports.filter = async function (req, res) {
 };
 
 
-    // let posts = await Post.find({})
-    //     .sort('createdAt')
-    //     .populate('user')
-    //     .populate({
-    //         path: 'comments',
-    //         populate: {
-    //             path: 'user'
-    //         }
-    //     })
+  
 
+module.exports.delete=async function(req,res){
 
+  console.log("issue byApi delete"+req.params.issueId);
 
-    // return res.json(200, {
-    //     message: "List of posts",
-    //     posts: posts
-    // })
+  try {
+      const issueId = req.params.issueId;
+      const deletedIssue = await issueModal.findByIdAndDelete(issueId);
+      res.status(200).json({ message: 'Issue deleted successfully', deletedIssue });
+
+  }catch(error) {
+
+      console.error("issue delete error"+error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+}
+

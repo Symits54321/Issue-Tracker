@@ -50,7 +50,7 @@
   height: 0px;
   margin: 15px;
   border-radius: 5px;
-  background-color: #fad7d7;
+  background-color: #faf7d7;
   overflow: hidden; }
   @media (max-width: 670px) {
     .issueForm {
@@ -166,7 +166,8 @@
         .filter .head input {
           width: 90%; } }
   .filter .issuelist {
-    width: 95%; }
+    width: 95%;
+    height: auto; }
     .filter .issuelist ul {
       list-style: none;
       width: 100%;
@@ -212,8 +213,9 @@
         .filter .issuelist ul .filter-details a {
           margin: 5px 3px 15px 25px;
           padding: 2px 20px;
-          border: 2px solid darkgrey;
-          border-radius: 5px; }
+          border: 2px solid #cbbaba;
+          border-radius: 5px;
+          background-color: #f0ffef; }
         .filter .issuelist ul .filter-details p {
           font-size: 15px;
           margin: 5px 3px 15px 3px;

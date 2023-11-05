@@ -28,7 +28,7 @@ module.exports.delete=async function(req,res){
     try {
         const issueId = req.params.issueId;
         const deletedIssue = await issueModal.findByIdAndDelete(issueId);
-        return;
+        res.redirect('back');
       } catch (error) {
         console.error("issue delete error"+error);
       

@@ -106,6 +106,12 @@ footer div {
   border-top: 0.1px solid #696666;
   padding: 4px 15px; }
 
+* input:-webkit-autofill,
+* input:-webkit-autofill:hover,
+* input:-webkit-autofill:focus,
+* input:-webkit-autofill:active {
+  caret-color: #b52020 !important; }
+
 /* This is a comment */
 @media (max-width: 900px) {
   header {

@@ -178,8 +178,14 @@ footer{
 
     }
 
-
-
+   *{
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+        caret-color: #b52020!important;
+        }
+    }
 
 
 
@@ -201,3 +207,8 @@ footer{
       zoom: 0.75; /* Adjust the zoom level as needed */
     }
   }
+
+
+
+
+  

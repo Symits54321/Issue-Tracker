@@ -53,6 +53,14 @@ app.set('layout extractScripts',true);
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 
+// for mobile viw testing( CORS error handling)
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://192.168.29.120:8100');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+
 
 // Session
 /*
