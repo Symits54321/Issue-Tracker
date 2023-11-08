@@ -168,8 +168,7 @@
         }
 
         input,textarea,select{
-            caret-color: grey;
-            caret-shape:bar ;
+           
             padding: 8px 12px;
             border-radius: 4px;
             border: 1px solid lightgray;
@@ -182,17 +181,7 @@
             }
         }
     
-        input:focus{
-            outline: none;   
-          }
-    
-        textarea:focus{
-            outline:none;
-        }
-
-        select:focus{
-            outline:none;
-        }
+       
 
         .multiselect{
             width:100%;

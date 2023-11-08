@@ -10,9 +10,7 @@
         cursor: pointer;
     }
 
-    input,textarea{
-        caret-color: black;
-    }
+   
 
     input,textarea,select{
        
@@ -29,11 +27,14 @@
     }
 
     input:focus{
-        outline: none;   
+        outline: none; 
+        caret-color: rgb(88, 87, 87);  
       }
 
     textarea:focus{
         outline:none;
+        caret-color: rgb(90, 89, 89);  
+
     }
 
     select:focus{
@@ -51,10 +52,7 @@
     right:20px;
     top:15px;
 
-    input:focus{
-        outline: none;
-       
-      }
+   
     
 
     .searchbox{
@@ -180,14 +178,7 @@ footer{
 
     }
 
-   *{
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-        caret-color: #b52020!important;
-        }
-    }
+  
 
 
 
