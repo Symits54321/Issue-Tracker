@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 //connecting
 main().catch(err => console.log("database err"+err));
 async function main(){
-    await mongoose.connect ('mongodb+srv://sumitsingh3357:symits9957cluster@clustersymits54321.zaczmjp.mongodb.net/?retryWrites=true&w=majority')
+  let url=process.env.MONGO_SERVER_URL;
+    await mongoose.connect (`${url}`);
 }
 
  // connect to DB

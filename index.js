@@ -1,3 +1,6 @@
+//require dotenv
+const dotenv = require('dotenv').config();
+
 const port = 8100;
 
 
@@ -132,8 +135,10 @@ app.listen(port,function(err){
         console.log('not able to listen port');
     }
     console.log(`Issue Tracker is Listening to port:${port}`);
+    
 });
 
 
 
 
+ 
