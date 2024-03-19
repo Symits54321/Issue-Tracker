@@ -8,7 +8,7 @@ Welcome to the Issue Tracker! This tool helps you manage projects, track issues,
 
 ## How to Use
 
-### Hoisted Link :-- [Click to open](https://issue-tracker-symits.onrender.com/)
+### Hoisted Link :-- [Click to open](https://issue-tracker-symits.onrender.com/)   (initial loading time = 60s )(as its free hoisted on render)
 
 ### Creating Projects
 
