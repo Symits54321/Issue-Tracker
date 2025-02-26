@@ -12,29 +12,26 @@ const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const path = require('path');
 
-// cors error handler
-const allowedOrigin = 'https://issue-tracker-symits.onrender.com';
-
-const corsOptions = {
+// cors 
+var whitelist = ['https://issue-tracker-symits.onrender.com']
+var corsOptions = {
   origin: function (origin, callback) {
-     console.log("origin : "+origin);
-     console.log("allowedOrigin : "+allowedOrigin);
-    if (!origin) {
-      return callback(new Error('Not allowed by CORS'));
-    }
-
-    if (origin === allowedOrigin ) {
-      callback(null, true);
+    console.log("origin received : "+origin);
+    if (whitelist.indexOf(origin) !== -1) {
+          var isAllowed = whitelist.some(url => {
+            return origin && origin.startsWith(url); // Checks if the origin starts with a whitelisted domain
+          });
+      
+          if (isAllowed) {
+            callback(null, true);  // Allow the request
+          } else {
+            callback(new Error('Not allowed by CORS'));  // Reject the request
+          }
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS'))
     }
-  },
-
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, 
-
-};
+  }
+}
 
 app.use(cors(corsOptions));
 
