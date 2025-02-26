@@ -17,7 +17,8 @@ const allowedOrigin = 'https://issue-tracker-symits.onrender.com';
 
 const corsOptions = {
   origin: function (origin, callback) {
-
+     console.log("origin : "+origin);
+     console.log("allowedOrigin : "+allowedOrigin);
     if (!origin) {
       return callback(new Error('Not allowed by CORS'));
     }
@@ -32,7 +33,7 @@ const corsOptions = {
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, 
-  
+
 };
 
 app.use(cors(corsOptions));
