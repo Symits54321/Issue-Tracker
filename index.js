@@ -17,12 +17,22 @@ const allowedOrigin = 'https://issue-tracker-symits.onrender.com';
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (origin === allowedOrigin || !origin) {
+
+    if (!origin) {
+      return callback(new Error('Not allowed by CORS'));
+    }
+
+    if (origin === allowedOrigin ) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
+
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, 
+  
 };
 
 app.use(cors(corsOptions));
@@ -59,12 +69,13 @@ app.set('layout extractScripts', true);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// for mobile view testing (CORS error handling)
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', allowedOrigin);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
+
+
+app.use((err, req, res, next) => {
+  if (err.message === 'Not allowed by CORS') {
+    return res.status(403).json({ message: 'Forbidden: CORS policy blocked the request' });
+  }
+  next(err);
 });
 
 //routes
