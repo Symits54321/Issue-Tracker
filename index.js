@@ -12,12 +12,17 @@ const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const path = require('path');
 
+
+//Parsers
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // cors 
 var whitelist = ['https://issue-tracker-symits.onrender.com']
 var corsOptions = {
-  origin: function (req, callback) {
-    const origin = req.get('Origin');
-    console.log("origin received : "+origin);
+  origin: function (origin, callback) {
+    console.log("origin : "+origin);
     if (whitelist.indexOf(origin) !== -1) {
           var isAllowed = whitelist.some(url => {
             return origin && origin.startsWith(url); // Checks if the origin starts with a whitelisted domain
@@ -47,10 +52,7 @@ app.use(sassMiddleware({
   prefix: '/css'
 }));
 
-//Parsers
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.use(cookieParser());
 
@@ -71,6 +73,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 app.use((err, req, res, next) => {
+
+  console.log(req);
+
   if (err.message === 'Not allowed by CORS') {
     return res.status(403).json({ message: 'Forbidden: CORS policy blocked the request' });
   }
