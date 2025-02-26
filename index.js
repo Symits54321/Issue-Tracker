@@ -16,6 +16,7 @@ const path = require('path');
 var whitelist = ['https://issue-tracker-symits.onrender.com']
 var corsOptions = {
   origin: function (origin, callback) {
+    const origin = req.get('Origin');
     console.log("origin received : "+origin);
     if (whitelist.indexOf(origin) !== -1) {
           var isAllowed = whitelist.some(url => {
